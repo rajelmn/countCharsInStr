@@ -1,16 +1,15 @@
-function aclean(arr) {
-    let map = new Map();
-
-    for(let word of arr) {
-        let sorted = word.toLowerCase().split('').sort().join('');
-        map.set(sorted, word);
-        console.log(word)
+function charFrequency(str) {
+    const map = new Map();
+    for(let char of str) {
+        if(map.has(char)) {
+            map.set(char, map.get(char) + 1)
+        }
+        else {
+            map.set(char, 1)
+        }
     }
     return map
-    return Array.from(map.values())
 }
 
-let arr = ["nap", "teachers", "cheaters", "PAN", "ear", "era", "hectares"];
-console.log(aclean(arr))
-//['PAN', 'hectares', 'era'] 
-// why not ["nap", "teachers", "cheaters"]
+console.log(charFrequency("mississippi")); // Map { 'm' => 1, 'i' => 4, 's' => 4, 'p' => 2 }
+
